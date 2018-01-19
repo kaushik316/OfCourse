@@ -99,3 +99,10 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# auth
+/src/auth.py
+
+# imports
+* .pyc
+* .DS_Store
