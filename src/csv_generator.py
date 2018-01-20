@@ -19,12 +19,17 @@ class Course:
     self.name = name.replace(',', '')
     self.aliases = aliases
     self.get_primary_alias()
+    self.get_description()
 
   def get_primary_alias(self):
     r = search(self.path)
     data = json.loads(r.text)
     self.primary_alias = data['result']['courses'][0]['primary_alias']
-    self.path = "/coursehistories/%s" % self.primary_alias
+
+  def get_description(self):
+    r = search('courses/%s' % self.ID)
+    data = json.loads(r.text)
+    self.description = data['result']['description'].replace(',', '|').replace('\n', ' ')
 
 def search(path):
   """
@@ -57,11 +62,11 @@ def get_dept_courses(dept):
 def generate_dept_csv(dept):
   print("[*] Accessing %s Department" % dept.ID)
   with open('Departments/%s_courses.csv' % dept.ID, 'w') as f:
-    f.write('NAME,ALIAS,PATH')
+    f.write('NAME,ALIAS,PATH,DESCRIPTION\n')
     courses = get_dept_courses(dept)
     num_courses = len(courses)
     for i, course in enumerate(courses):
-      f.write("%s,%s,%s\n" % (course.name, course.primary_alias, course.path))
+      f.write("%s,%s,%s,%s\n" % (course.name, course.primary_alias, course.path, course.description))
 
 def generate_csvs():
   if not os.path.isdir('Departments'):
