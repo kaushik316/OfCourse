@@ -1,36 +1,139 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
-body {
-  padding-top: 50px;
-  padding-bottom: 20px;
-}
-
-.jumbotron {
-	text-align: center;
-	background-image: url('../images/Canada.jpg');
+html, body {
+	background-image: url('../images/penn_landscape.jpg');s
 	background-size: cover;
-	color: white;
+	height: 100% !important;
 }
 
-.btn-lg {
+div#content {
+	height: 100%;
+}
+
+div#header {
+	position: absolute;
+}
+
+div#footer {
+	position: absolute;
+}
+
+.navbar {
+	background-color: maroon;
+	margin: 0px;
+}
+.navbar-header img {
+	max-height: 50px;
+	margin: 5px;
+}
+
+.major_select {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.navbar-header a {
+	float: right;
 	font-size: 36px;
+	font-family: 'Montserrat', sans-serif;
+	font: bolder !important;
+	color: lightgray !important;
+	margin: 5px;	
 }
 
-ul.nav, .jumbotron h1 {
-	font-family: 'Arvo', courier, serif;
+.navbar-right a {
+	font-size: 24px;
+	margin-top: 8px;
+	font-family: 'Montserrat', sans-serif;
+	font: bolder !important;
+	color: lightgray !important;
 }
 
-ul.nav {
-	font-size: 13px;
+.dropdown-menu {
+	background-color: maroon;
+	text-align:center;
 }
 
-.jumbotron h1 {
-	margin-top: 0px;
-	margin-bottom: 50px;
+.btn-success {
+	background-color: darkblue;
+	border-color: lightgray;
 }
 
-.jumbotron p {
-	margin-bottom: 30px;
-	font-weight: 100;
-	padding: 0 50px;
+.dropdown-object-button li {
+
+}
+
+.resources {
+
+}
+
+.resources h2 {
+	font-family: 'Montserrat', sans-serif;
+	font-style: italic !important;
+	text-align: center;
+}
+
+.resources p {
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-style: bolder !important;
+	font-size: 14px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.major_dropdown {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.keyword_entry {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.slidecontainer {
+    width: 100%;
+}
+
+/*.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: darkblue;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: darkblue;
+    cursor: pointer;
+}*/
+
+.footer {
+	background-color: maroon;
+	color: lightgray;
+	bottom: 0;
+	height: 20px;
+	width: 100%;
+	position: fixed;
 }
 
