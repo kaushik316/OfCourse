@@ -36,7 +36,10 @@ def landing():
     input_inst_acc = str(input_inst_acc),
     input_stud_int = str(input_stud_int),
     input_value_read = str(input_value_read),
-    input_work_req = str(input_work_req))
+    input_work_req = str(input_work_req),
+    course1_name = 'CIT593',
+    course1_acc= '85%',
+    course1_summ = 'no one should ever take this course')
 
 
 # Accesses the display info for the result of the course predictor
