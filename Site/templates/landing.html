@@ -22,10 +22,10 @@
                 <div class="col-md-6">
                   <div class="major_dropdown" align="middle">
                     <select name="major">
-                      <option value="volvo">Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="opel">Opel</option>
-                      <option value="audi">Audi</option>
+                      <option value="CIT">Computer and Information Technology</option>
+                      <option value="CIS">Computer Science</option>
+                      <option value="EE">Electrical Engineering</option>
+                      <option value="ME">Mechanical Engineering</option>
                     </select>
                   </div>
                 </div>
@@ -47,7 +47,7 @@
               </div>
               <div class="col-md-6">
                 <div class="slidecontainer">
-                  <input type="range" min="1" max="5" value="3" class="slider" id="course_diff" name="course_diff">
+                  <input type="range" min="1" max="5" value="3" class="slider" step="0.1" id="course_diff" name="course_diff">
                   <p>Value: <span id="demo"></span></p>
                 </div>
               </div>
@@ -58,7 +58,7 @@
               </div>
               <div class="col-md-6">
                 <div class="slidecontainer">
-                  <input type="range" min="1" max="5" value="3" class="slider2" id="inst_acc" name="inst_acc">
+                  <input type="range" min="1" max="5" value="3" step="0.1" class="slider2" id="inst_acc" name="inst_acc">
                   <p>Value: <span id="demo2"></span></p>
                 </div>
               </div>
@@ -69,7 +69,7 @@
               </div>
               <div class="col-md-6">
                 <div class="slidecontainer">
-                  <input type="range" min="1" max="5" value="3" class="slider3" id="stud_int" name="stud_int">
+                  <input type="range" min="1" max="5" value="3" step="0.1" class="slider3" id="stud_int" name="stud_int">
                   <p>Value: <span id="demo3"></span></p>
                 </div>
               </div>
@@ -80,7 +80,7 @@
               </div>
               <div class="col-md-6">
                 <div class="slidecontainer">
-                  <input type="range" min="1" max="5" value="3" class="slider3" id="value_read" name="value_read">
+                  <input type="range" min="1" max="5" value="3" step="0.1" class="slider3" id="value_read" name="value_read">
                   <p>Value: <span id="demo4"></span></p>
                 </div>
               </div>
@@ -91,23 +91,68 @@
               </div>
               <div class="col-md-6">
                 <div class="slidecontainer">
-                  <input type="range" min="1" max="5" value="3" class="slider3" id="work_req" name="work_req">
+                  <input type="range" min="1" max="5" value="3" step="0.1" class="slider3" id="work_req" name="work_req">
                   <p>Value: <span id="demo5"></span></p>
                 </div>
               </div>
             </div>
-            <input type="submit" class="btn btn-default btn-lg" value="Submit" style="background-color: gray; color: white;">
+            <div style="text-align: center">
+              <input type="submit" class="btn btn-default btn-lg" value="Submit" style="background-color: maroon">
+            </div>
           </form>
         </div>
         <div class="col-md-6">
-          <h2>Find Your Perfect Course</h2>
-          <p>{{ input_major }}</p>
-          <p>{{ input_kw }}</p>
-          <p>{{ input_course_diff }}</p>
-          <p>{{ input_inst_acc }}</p>
-          <p>{{ input_stud_int }}</p>
-          <p>{{ input_value_read }}</p>
-          <p>{{ input_work_req }}</p>
+          <div class="output_blocks">
+            <h2>Find Your Perfect Course</h2>
+            <div class="flex-container" id="rounded_corners">
+              <div>
+                {{ course1_name }}: {{ course1_acc }} match!</p>
+                <p>Summary: {{ course1_summ }}</p>
+                <br>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p>Course Difficulty</p>
+                    <p>Instructor Accessibility</p>
+                    <p>Student Interest</p>
+                    <p>Value of Readings</p>
+                    <p>Work Required</p>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{ input_course_diff }}</p>
+                    <p>{{ input_inst_acc }}</p>
+                    <p>{{ input_stud_int }}</p>
+                    <p>{{ input_value_read }}</p>
+                    <p>{{ input_work_req }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="flex-container" id="rounded_corners">
+              <div>
+                {{ course1_name }}: {{ course1_acc }} match!</p>
+                <p>Summary: {{ course1_summ }}</p>
+                <br>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p>Course Difficulty</p>
+                    <p>Instructor Accessibility</p>
+                    <p>Student Interest</p>
+                    <p>Value of Readings</p>
+                    <p>Work Required</p>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{ input_course_diff }}</p>
+                    <p>{{ input_inst_acc }}</p>
+                    <p>{{ input_stud_int }}</p>
+                    <p>{{ input_value_read }}</p>
+                    <p>{{ input_work_req }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
        </div>
       </div>
     </div>

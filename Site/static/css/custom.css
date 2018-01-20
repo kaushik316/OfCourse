@@ -5,6 +5,12 @@ html, body {
 	height: 100% !important;
 }
 
+.container {
+	padding: 0px;
+	margin: 2%;
+	width: 96%;
+}
+
 div#content {
 	height: 100%;
 }
@@ -70,63 +76,85 @@ div#footer {
 	font-family: 'Montserrat', sans-serif;
 	font-style: italic !important;
 	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 30px;
+	color: #ffe6e6;
+	-webkit-filter: drop-shadow(5px 5px 5px #222);
 }
 
 .resources p {
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
 	font-style: bolder !important;
-	font-size: 14px;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	font-size: 16px;
+	color: #ffe6e6;
+	-webkit-filter: drop-shadow(5px 5px 5px #222);
 }
 
 .major_dropdown {
 	padding-top: 20px;
 	padding-bottom: 20px;
-	display: inline-block;
-	vertical-align: middle;
 }
 
 .keyword_entry {
 	padding-top: 20px;
 	padding-bottom: 20px;
+	text-align: center;
 }
 
 .slidecontainer {
     width: 100%;
 }
 
-/*.slider {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 25px;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
+.output_blocks {
+	text-align: center;
+	align-items: center;
+	justify-content: center;
 }
 
-.slider:hover {
-    opacity: 1;
+.btn {
+	color: white;
 }
 
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    background: darkblue;
-    cursor: pointer;
+.keyword_entry {
+	padding-bottom: : 5px;
+	padding-top: 0px;
 }
 
-.slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    background: darkblue;
-    cursor: pointer;
-}*/
+.major_dropdown {
+	padding-bottom: : 5px;
+	padding-top: 0px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: rgba(128, 0, 0, .3);
+  margin-left: 5%;
+  margin-right: 5%;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+}
+
+.flex-container p {
+	margin: 0px;
+	color: #ffe6e6;
+	-webkit-filter: drop-shadow(5px 5px 5px #222);
+}
+
+.flex-container > div {
+  width: 90%;
+  text-align: center;
+  font-size: 24px;
+  color: #ffe6e6;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-bottom: 5px;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+}
+
+#rounded_corners {
+    border-radius: 10px; 
+}
 
 .footer {
 	background-color: maroon;

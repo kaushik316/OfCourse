@@ -20,15 +20,15 @@ def landing():
   if not input_kw:
     input_kw = 'test_input'
   if not input_course_diff:
-    input_course_diff = 3
+    input_course_diff = 3.0
   if not input_inst_acc:
-    input_inst_acc = 3
+    input_inst_acc = 3.0
   if not input_stud_int:
-    input_stud_int = 3
+    input_stud_int = 3.0
   if not input_value_read:
-    input_value_read = 3
+    input_value_read = 3.0
   if not input_work_req:
-    input_work_req = 3
+    input_work_req = 3.0
   return render_template('landing.html', 
     input_major = str(input_major),
     input_kw = str(input_kw),
@@ -36,7 +36,10 @@ def landing():
     input_inst_acc = str(input_inst_acc),
     input_stud_int = str(input_stud_int),
     input_value_read = str(input_value_read),
-    input_work_req = str(input_work_req))
+    input_work_req = str(input_work_req),
+    course1_name = 'CIT593',
+    course1_acc= '85%',
+    course1_summ = 'no one should ever take this course')
 
 if __name__=='__main__':
   app.run(debug=True)
