@@ -4,84 +4,111 @@
 
 {% block content %}
 
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron" id="who-we-are">
-    <div class="bio">
-      <div class="container">
-        <h1>The BlockHeads</h1>
-        <div class="col-md-1">
-        </div> 
-        <div class="col-md-4">
-          <div class="personal-photo">
-            <img src="{{ url_for('static', filename='images/john.png') }}" height="200" width="200">
-          </div>
-          <h2>John Hall</h2>
-        </div> 
-        <div class="col-md-2">
-        </div> 
-        <div class="col-md-4"> 
-          <div class="personal-photo"> 
-            <img src="{{ url_for('static', filename='images/brian.png') }}" height="200" width="200">
-          </div>
-          <h2>Brian Heath</h2>
-        </div>                
-        <div class="col-md-1">
-        </div>
-      </div>
-      <div class="platitudes">
-        <br>
-        <br>
-        <br>
-        <p>
-          The world of cryptocurrencies introduces new trading opportunities to both the casual investor and the active day trader. We believe in demystifying the technical nuances of trading these currencies, and with our tools we aim to grow the population for whom cryptocurrencies make up a portion of their portfolio.
-        </p>
-        <br>
-        <p>
-          With our cutting edge investment tools, you can apply the technical trading strategies that have brought you success trading securities in the stock market to the world of crypto. We hope to provide a platform where traders can collaborate and share the techniques that have brough them success.
-        </p>
-        <br>
-        <p>
-          Please reach out to us with questions or opportunities. We enjoy interacting with new traders and we would relish the opportunity to build additional platforms that help you trade like a BlockHead!
-        </p>
-      </div>
-    </div>
-  </div>
-
   <div class="resources">
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-4">
-          <h2>CoinBase</h2>
-          <p>Coinbase provides and secure and simple interface to begin buying cryptocurrencies. You can transfer money with your bank account or with a credit card.</p>
-          <p><a class="btn btn-default" href="https://www.coinbase.com" role="button">Visit Coinbase &raquo;</a></p>
+        <div class="col-md-6">
+          <h2>Enter Your Preferences</h2>
+          <form method="POST">
+            <div class="qualitative">
+              
+            </div>
+            <div class="row">
+              <div class="major_select">
+                <div class="col-md-6">
+                  <p>Select Your Major</p>
+                </div>
+                <div class="col-md-6">
+                  <div class="major_dropdown" align="middle">
+                    <select name="major">
+                      <option value="volvo">Volvo</option>
+                      <option value="saab">Saab</option>
+                      <option value="opel">Opel</option>
+                      <option value="audi">Audi</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p>Enter in a Keyword</p>
+              </div>
+              <div class="col-md-6">
+                <div class="keyword_entry">
+                  <input id="kw", type="text" name="kw">
+                </div>
+              </div> 
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p>Course Difficulty</p>
+              </div>
+              <div class="col-md-6">
+                <div class="slidecontainer">
+                  <input type="range" min="1" max="5" value="3" class="slider" id="course_diff" name="course_diff">
+                  <p>Value: <span id="demo"></span></p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p>Instructor Accessibility</p>
+              </div>
+              <div class="col-md-6">
+                <div class="slidecontainer">
+                  <input type="range" min="1" max="5" value="3" class="slider2" id="inst_acc" name="inst_acc">
+                  <p>Value: <span id="demo2"></span></p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p>Student Interest</p>
+              </div>
+              <div class="col-md-6">
+                <div class="slidecontainer">
+                  <input type="range" min="1" max="5" value="3" class="slider3" id="stud_int" name="stud_int">
+                  <p>Value: <span id="demo3"></span></p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p>Value of Readings</p>
+              </div>
+              <div class="col-md-6">
+                <div class="slidecontainer">
+                  <input type="range" min="1" max="5" value="3" class="slider3" id="value_read" name="value_read">
+                  <p>Value: <span id="demo4"></span></p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p>Work Required</p>
+              </div>
+              <div class="col-md-6">
+                <div class="slidecontainer">
+                  <input type="range" min="1" max="5" value="3" class="slider3" id="work_req" name="work_req">
+                  <p>Value: <span id="demo5"></span></p>
+                </div>
+              </div>
+            </div>
+            <input type="submit" class="btn btn-default btn-lg" value="Submit" style="background-color: gray; color: white;">
+          </form>
         </div>
-        <div class="col-md-4">
-          <h2>GDAX</h2>
-          <p>GDAX is the Coinbase trading platform where you can follow up-to-the-minute prices and, when you're ready, buy and sell Bitcoin, Ethereum, or Litecoin.</p>
-          <p><a class="btn btn-default" href="https://www.gdax.com" role="button">Visit GDAX &raquo;</a></p>
+        <div class="col-md-6">
+          <h2>Find Your Perfect Course</h2>
+          <p>{{ input_major }}</p>
+          <p>{{ input_kw }}</p>
+          <p>{{ input_course_diff }}</p>
+          <p>{{ input_inst_acc }}</p>
+          <p>{{ input_stud_int }}</p>
+          <p>{{ input_value_read }}</p>
+          <p>{{ input_work_req }}</p>
        </div>
-        <div class="col-md-4">
-          <h2>Bittrex</h2>
-          <p>When you're ready to explore more cryptocurrencies, Bittrex provides a trading platform for exchanging various exciting alt-coins.</p>
-          <p><a class="btn btn-default" href="https://www.bittrex.com" role="button">Visit Bittrex &raquo;</a></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-2">
-        </div>
-        <div class="col-md-4">
-          <h2>Ethereum</h2>
-          <p>Ethereum is the world's second-largest coin by market capitalization, and it has reaching applications beyond being a currency. Learn more about it on their website.</p>
-          <p><a class="btn btn-default" href="https://www.ethereum.org" role="button">Visit Ethereum &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Ripple</h2>
-          <p>The designers of Ripple believe that their coin can modernize the way people move money around the world. Learn more about their initiatives at the link below.</p>
-          <p><a class="btn btn-default" href="https://www.ripple.com" role="button">Visit Ripple &raquo;</a></p>
-        </div>
-        <div class="col-md-2">
-        </div>
       </div>
     </div>
   </div>
@@ -102,6 +129,52 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
   <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script>
+    var slider = document.getElementById("course_diff");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+  </script>
+  <script>
+    var slider2 = document.getElementById("inst_acc");
+    var output2 = document.getElementById("demo2");
+    output2.innerHTML = slider2.value;
+
+    slider2.oninput = function() {
+      output2.innerHTML = this.value;
+    }
+  </script>
+  <script>
+    var slider3 = document.getElementById("stud_int");
+    var output3 = document.getElementById("demo3");
+    output3.innerHTML = slider3.value;
+
+    slider3.oninput = function() {
+      output3.innerHTML = this.value;
+    }
+  </script>
+  <script>
+    var slider4 = document.getElementById("value_read");
+    var output4 = document.getElementById("demo4");
+    output4.innerHTML = slider4.value;
+
+    slider4.oninput = function() {
+      output4.innerHTML = this.value;
+    }
+  </script>
+  <script>
+    var slider5 = document.getElementById("work_req");
+    var output5 = document.getElementById("demo5");
+    output5.innerHTML = slider5.value;
+
+    slider5.oninput = function() {
+      output5.innerHTML = this.value;
+    }
+  </script>
+
 
 
 {% endblock %}

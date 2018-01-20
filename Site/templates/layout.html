@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>BlockHeads</title>
+    <title>Penn OfCourse</title>
 
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
 
@@ -25,6 +25,14 @@
 
     <!-- Picture that shows up in the tab header -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <!-- Add scripts unique to this file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -59,50 +67,35 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">BlockHeads</a>
-          <img src="{{ url_for('static', filename='images/emblem.png') }}">
+          <img src="{{ url_for('static', filename='images/penn_emblem.png') }}">
+          <a class="navbar-brand" href="/">Penn OfCourse</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">        
             <li>
-              <a href="/#who-we-are">WHO WE ARE</a>
+              <a href="mailto: bheath@seas.upenn.edu">SEND FEEDBACK</a>
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">ASK A BLOCKHEAD
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">HELPFUL LINKS
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
                 <div class="input-group">
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="dropdown-object">
-                        <li>
-                          <p>We love getting direct feedback!</p>
-                        </li>
-                      </div>
-                      <li class="divider"></li> 
-                      <div class="dropdown-object">
-                        <li>
-                          <p>Our next live chat <br> is on 1 / 31!</p>
-                        </li>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="dropdown-object-button">
-                        <li>
-                          <a class="btn btn-success" href="mailto: cryptogurus@gmail.com" role="button">Send us an email! &raquo;</a>
-                        </li>
-                      </div>
-                      <li class="divider"></li> 
-                      <div class="dropdown-object">
-                        <li>
-                          <a href="http://add.eventable.com/events/5a36fd27982f85003107a5f0/5a36fd29295a5d00387e6755/" class="eventable-link" target="_blank" data-key="5a36fd27982f85003107a5f0" data-event="5a36fd29295a5d00387e6755" data-style="1">Add to Calendar</a>
-                          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://plugins.eventable.com/eventable.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script', 'eventable-script');
-                          </script>
-                        </li>
-                      </div>
-                    </div>
-                 </div>
+                  <div class="dropdown-object-button">
+                    <li>
+                      <a class="btn btn-success" href="https://www.pennintouch.apps.upenn.edu/pennInTouch/jsp/fast2.do" role="button">Penn InTouch &raquo;</a>
+                    </li>
+                  </div>
+                  <div class="dropdown-object-button">
+                    <li>
+                      <a class="btn btn-success" href="https://www.upenn.edu/registrar/" role="button">Registrar &raquo;</a>
+                    </li>
+                  </div>
+                  <div class="dropdown-object-button">
+                    <li>
+                      <a class="btn btn-success" href="https://canvas.upenn.edu/" role="button">Canvas &raquo;</a>
+                    </li>
+                  </div>
                 </div>
               </ul>
             </li>
