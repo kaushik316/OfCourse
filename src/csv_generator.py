@@ -18,7 +18,7 @@ class Course:
     self.ID = ID
     self.name = name.replace(',', '')
     self.aliases = aliases
-    self.primary_alias = self.get_primary_alias()
+    self.get_primary_alias()
 
   def get_primary_alias(self):
     r = search(self.path)
