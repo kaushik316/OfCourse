@@ -1,10 +1,20 @@
+"""
+Script to pull review scores for each course offered at Penn.
+All review scores for a given course are averaged across each
+category. The averaged scores are stored in a dataframe and 
+outputted to a csv.
+"""
+
 from auth import api_key
 import requests
 import pprint 
 import pandas as pd
 import json
+import time
+from clean_csv import drop_empties
+start = time.time()
 
-course_df = pd.read_csv('Departments/AAMW_courses.csv')
+course_df = pd.read_csv('Data/courses.csv')
 print course_df.head()
 course_ids = course_df['ALIAS']
 
@@ -18,8 +28,8 @@ for index, alias in enumerate(course_ids):
 
 	# store course information to be used as features
 	review_dict = {}
-	features = ['rDifficulty', 'rStimulateInterest', 'rRecommendMajor','rWorkRequired',
-			    'rInstructorAccess', 'rReadingsValue', 'rRecommendNonMajor']
+	features = ['rDifficulty', 'rStimulateInterest','rWorkRequired',
+			    'rInstructorAccess', 'rReadingsValue']
 
 	for feature in features:
 		review_dict[feature] = []
@@ -53,8 +63,6 @@ for index, alias in enumerate(course_ids):
 	if index == 0:
 		output_df = pd.DataFrame({'Difficulty': review_dict['rDifficulty'],
 						  	   	  'Interest Score': review_dict['rStimulateInterest'],
-			                      'Rec Major': review_dict['rRecommendMajor'],
-			                      'Rec Non Major': review_dict['rRecommendNonMajor'],  
 			                      'Work Required': review_dict['rWorkRequired'], 
 			                      'Instructor Access': review_dict['rInstructorAccess'], 
 			                      'Readings Value': review_dict['rReadingsValue'],	
@@ -62,11 +70,11 @@ for index, alias in enumerate(course_ids):
 			                      'Course Name': review_dict['Name']
 			                      }, index=[index])
 
+		output_df.to_csv('Data/allcourses.csv', mode='a', header=True)
+
 	else:
 		df_to_append = pd.DataFrame({ 'Difficulty': review_dict['rDifficulty'],
 							  	   	  'Interest Score': review_dict['rStimulateInterest'],
-				                      'Rec Major': review_dict['rRecommendMajor'],
-				                      'Rec Non Major': review_dict['rRecommendNonMajor'],  
 				                      'Work Required': review_dict['rWorkRequired'], 
 				                      'Instructor Access': review_dict['rInstructorAccess'], 
 				                      'Readings Value': review_dict['rReadingsValue'],	
@@ -74,9 +82,8 @@ for index, alias in enumerate(course_ids):
 			                      	  'Course Name': review_dict['Name']
 			                        }, index=[index])
 
-		output_df = output_df.append(df_to_append)
+		df_to_append.to_csv('Data/allcourses.csv', mode='a', header=False)
 
-
-# Get rid of data with missing values
-output_df.dropna(how='any', inplace=True)
-output_df.to_csv('Data/allcourses.csv')
+drop_empties('Data/allcourses')
+end = time.time()
+print "Program took {} seconds".format(end-start)
