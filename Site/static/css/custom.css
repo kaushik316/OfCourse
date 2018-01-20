@@ -139,6 +139,7 @@ div#footer {
 	margin: 0px;
 	color: #ffe6e6;
 	-webkit-filter: drop-shadow(5px 5px 5px #222);
+	margin-top: 10px;
 }
 
 .flex-container > div {
@@ -148,6 +149,7 @@ div#footer {
   color: #ffe6e6;
   margin-left: 5%;
   margin-right: 5%;
+  margin-top: 10px;
   padding-bottom: 5px;
   -webkit-filter: drop-shadow(5px 5px 5px #222);
 }

@@ -22,16 +22,21 @@
                 <div class="col-md-6">
                   <div class="major_dropdown" align="middle">
                     <select name="major">
+                      <option value="BE">Bioengineering</option>
+                      <option value="CBE">Chemical and Biomolecular Engineering</option>
+                      <option value="CHEM">Chemistry</option>
+                      <option value="CIS">Computer and Information Science</option>
                       <option value="CIT">Computer and Information Technology</option>
-                      <option value="CIS">Computer Science</option>
-                      <option value="EE">Electrical Engineering</option>
-                      <option value="ME">Mechanical Engineering</option>
+                      <option value="EAS">Engineering and Applied Science</option>
+                      <option value="ENM">Engineering Mathematics</option>
+                      <option value="MSE">Materials Science and Engineering</option>
+                      <option value="PHYS">Physics</option>
                     </select>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="row">
+<!--             <div class="row">
               <div class="col-md-6">
                 <p>Enter in a Keyword</p>
               </div>
@@ -40,7 +45,7 @@
                   <input id="kw", type="text" name="kw">
                 </div>
               </div> 
-            </div>
+            </div> -->
             <div class="row">
               <div class="col-md-6">
                 <p>Course Difficulty</p>
@@ -106,9 +111,13 @@
             <h2>Find Your Perfect Course</h2>
             <div class="flex-container" id="rounded_corners">
               <div>
-                {{ course1_name }}: {{ course1_acc }} match!</p>
+                {{ course1_alias }} : {{ course1_name }}</p>
                 <p>Summary: {{ course1_summ }}</p>
                 <br>
+                <h4>
+                  <br>
+                  {{ course1_inst_name }} / {{  course1_semester  }}
+                </h4>
                 <div class="row">
                   <div class="col-md-6">
                     <p>Course Difficulty</p>
@@ -128,7 +137,7 @@
               </div>
             </div>
             <br>
-            <div class="flex-container" id="rounded_corners">
+<!--             <div class="flex-container" id="rounded_corners">
               <div>
                 {{ course1_name }}: {{ course1_acc }} match!</p>
                 <p>Summary: {{ course1_summ }}</p>
@@ -150,7 +159,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
        </div>
