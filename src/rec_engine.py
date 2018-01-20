@@ -1,20 +1,42 @@
+"""
+Data processing and machine learning model. Trains SVM, 
+makes predictions based on input vector and saves model
+"""
+
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 import pandas as pd
 import numpy as np 
+import pickle
 
-model_df = pd.read_csv('Data/allcourses.csv')
-model_df = model_df.iloc[:, 1:]
-model_df.drop(labels=['Rec Major', 'Rec Non Major'], axis=1, inplace=True)
+
+def return_random_sample(df):
+	course = df.sample(n=1)
+	course_alias = course['Course Alias'].iloc[0]
+	course_name = course['Course Name'].iloc[0]
+	return (course_alias, course_name)
+
+# To save model and dataframes
+def pickle_stuff(obj, path):
+	with open(path, 'wb') as p_file:
+		pickle.dump(obj, p_file)
+
+
+model_df = pd.read_csv('Data/allcourses_proc.csv')
+
+# count of non numeric columns in dataset
+non_numeric_columns = 2
 
 # Calculate ranks along columns
-ranks_df = model_df.iloc[:, 2:].rank(axis=1)
+ranks_df = model_df.iloc[:, (non_numeric_columns + 1):].rank(axis=1)
+
 rank_columns = ['RD', 'RIA', 'RIS', 'RRV', 'RWR']
 ranks_df.columns = rank_columns
 ranks_df = pd.concat([ranks_df, model_df], axis=1)
 
+# Convert ranks to a string stored in a single column
 ranks_df['Label'] = ranks_df[ranks_df.columns[:5]].apply(lambda x: ''.join(x.dropna().astype(int).astype(str)),axis=1)
 ranks_df['Label'] = ranks_df['Label'].astype(int)
 
@@ -31,19 +53,10 @@ labels_tokeep = counts[counts > 1]
 final_df = ranks_df[ranks_df['Label'].isin(labels_tokeep.index)]
 
 # Split data into features and labels for model
-X = final_df.iloc[:, 2:-1]
+X = final_df.iloc[:, (non_numeric_columns+ 1):-1]
 y = final_df['Label']
 
-print y.value_counts()
-
-# Parameter grid for grid search
-# Omit C values from the grid as class_weight param does this automatically for us
-# svm_parameters = {'kernel': ['linear', 'rbf'],
-# 				  'gamma': [1e-1, 1e2, 5]}
-
-# cv = StratifiedShuffleSplit(n_splits=5, test_size=0.2)
-svm_clf = SVC()
-
+svm_clf = SVC(kernel='linear', C=10)
 
 # Split courses into training and testing data
 x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
@@ -51,22 +64,23 @@ svm_clf.fit(x_train, y_train)
 svm_score = svm_clf.score(x_test, y_test)
 
 print "score is {}".format(svm_score)
-# grid = GridSearchCV(svm_clf, param_grid=svm_parameters, cv=cv)
-# grid.fit(x_train, y_train)
-# print("The best parameters are {0} with a score of {1:.2f}%".format(grid.best_params_, grid.best_score_))
 
-# grid_score = grid.score(x_test, y_test)
-# print "Grid search's score on new test data was {0:.2f}%".format(grid_score)
-
-
+# Test a prediction on a synthetic sample
 random_vec = np.asarray([2.16, 3.68, 3.55, 3.5, 2.32])
-random_vec = random_vec.reshape(1, -11)
+random_vec = random_vec.reshape(1, -1)
 class_pred = svm_clf.predict(random_vec)[0]
 
-print "class_pred: {}".format(class_pred)
-
-
+# Create a subset of courses that match the preferences
 pred_df = final_df.loc[final_df['Label'] == class_pred]
-print pred_df.head()
+
+alias, name = return_random_sample(pred_df)
+print "The recommended course is {}".format(name)
+print "Course ID: {}".format(alias)
+
+
+# Save model and final dataframe
+pickle_stuff(svm_clf, "Pickled/svm.pickle")
+pickle_stuff(final_df, "Pickled/final_df.pickle")
+
 
 

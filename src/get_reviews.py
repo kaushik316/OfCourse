@@ -84,6 +84,5 @@ for index, alias in enumerate(course_ids):
 
 		df_to_append.to_csv('Data/allcourses.csv', mode='a', header=False)
 
-drop_empties('Data/allcourses')
 end = time.time()
 print "Program took {} seconds".format(end-start)
