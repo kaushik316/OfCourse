@@ -31,6 +31,10 @@ def landing():
     input_work_req = 3.0
 
   course1 = display(input_course_diff, input_inst_acc, input_stud_int, input_value_read, input_work_req)
+  if (len(course1.description) > 400):
+    course1_concat = course1.description[:400] + "..."
+  else:
+    course1_concat = course1.description
 
   return render_template('landing.html', 
     input_major = str(input_major),
@@ -42,7 +46,7 @@ def landing():
     input_work_req = str(course1.work_req),
     course1_name = course1.name,
     course1_acc= '85%',
-    course1_summ = course1.description,
+    course1_summ = course1_concat,
     course1_inst_name = str(course1.instructor),
     course1_semester = str(course1.semester),
     course1_alias = str(course1.alias))
