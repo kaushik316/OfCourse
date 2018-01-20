@@ -33,7 +33,7 @@ def return_course(input_array):
 
 
 if __name__ == "__main__":
-	random_vec = np.asarray([2.16, 3.68, 3.55, 3.5, 2.32])
+	random_vec = np.asarray([2.2, 3.8, 3.5, 3.4, 2.3])
 	random_vec = random_vec.reshape(1, -1)
 	recommended_course = return_course(random_vec)
 	print "Course ID: {}".format(recommended_course)
