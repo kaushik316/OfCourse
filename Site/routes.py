@@ -30,7 +30,7 @@ def landing():
   if not input_work_req:
     input_work_req = 3.0
 
-  course1 = display(input_course_diff, input_inst_acc, input_stud_int, input_value_read, input_work_req)
+  course1, value_read_out = display(input_course_diff, input_inst_acc, input_stud_int, input_value_read, input_work_req)
   if (len(course1.description) > 400):
     course1_concat = course1.description[:400] + "..."
   else:
@@ -42,7 +42,7 @@ def landing():
     input_course_diff = str(course1.difficulty),
     input_inst_acc = str(course1.instr_quality),
     input_stud_int = str(course1.stim_interest),
-    input_value_read = str(input_value_read),
+    input_value_read = str(value_read_out),
     input_work_req = str(course1.work_req),
     course1_name = course1.name,
     course1_acc= '85%',
@@ -67,10 +67,10 @@ def display(RD_I, RIA_I, RIS_I, RRV_I, RWR_I):
   # print aliases
   input_vector = np.asarray([RD, RIA, RIS, RRV, RWR])
   input_vector = input_vector.reshape(1, -1)
-  alias = return_course(input_vector)
+  alias, value_read_direct = return_course(input_vector)
   from course_display import Course_Display
   course = Course_Display(alias)
-  return course
+  return course, value_read_direct
   # return render_template('display.html', course = Course_Display(alias))
 
 if __name__=='__main__':
