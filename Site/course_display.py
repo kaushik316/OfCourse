@@ -9,7 +9,7 @@ class Course_Display:
     self.get_course_info()
 
   def get_name_descr(self):
-    with open("../src/Departments/%s_courses.csv" % self.dept, 'r') as f:
+    with open("../src/courses.csv", 'r') as f:
       for course in f:
         c = course.strip().split(",")
         if (self.alias == c[1]):
